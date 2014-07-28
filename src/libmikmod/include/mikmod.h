@@ -684,6 +684,12 @@ struct MDRIVER* next;
 	BOOL        (*VoiceStopped)     (UBYTE);
 	SLONG       (*VoiceGetPosition) (UBYTE);
 	ULONG       (*VoiceRealVolume)  (UBYTE);
+
+    BOOL    	(*StreamInit)       (ULONG speed, UWORD flags);
+    void    	(*StreamExit)       (void);
+    void    	(*StreamSetSpeed)   (ULONG speed);
+    SLONG   	(*StreamGetPosition)(void);
+    void    	(*StreamLoadFP)     (VIRTUAL_FILE *fp);	
 } MDRIVER;
 
 /* These variables can be changed at ANY time and results will be immediate */
