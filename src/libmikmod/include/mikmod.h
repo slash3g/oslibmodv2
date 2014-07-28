@@ -32,6 +32,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "VirtualFile.h"  
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -768,6 +770,24 @@ MIKMODAPI extern void  VC_VoiceStop(UBYTE);
 MIKMODAPI extern BOOL  VC_VoiceStopped(UBYTE);
 MIKMODAPI extern SLONG VC_VoiceGetPosition(UBYTE);
 MIKMODAPI extern ULONG VC_VoiceRealVolume(UBYTE);
+
+/*========== Streaming Audio stuff */
+
+typedef struct MSTREAM
+{   struct MSTREAM *next;
+    CHAR    *type;
+    CHAR    *version;
+    BOOL    (*Init)(void);
+    BOOL    (*Test)(void);
+    BOOL    (*Load)(void);
+    void    (*Cleanup)(void);
+} MSTREAM;
+
+
+extern int   stream_bufsize;
+extern VIRTUAL_FILE  *stream_fp;
+extern SLONG stream_seekpos;
+extern SLONG stream_reppos;
 
 #ifdef __cplusplus
 }
