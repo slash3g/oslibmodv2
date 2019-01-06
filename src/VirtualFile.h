@@ -266,7 +266,7 @@ int oslInitVfsFile();
 	\param source
 		Can be VF_FILE, VF_MEMORY or any virtual file device registered by you.
 */
-extern inline void oslSetDefaultVirtualFileSource(int source)		{
+inline void oslSetDefaultVirtualFileSource(int source)		{
 	osl_defaultVirtualFileSource = source;
 }
 
@@ -288,7 +288,7 @@ extern int VF_FILE;
 
 
 /** Gets the name of the temporary file. See #oslSetTempFileData for a code sample. */
-extern inline char *oslGetTempFileName()		{
+inline char *oslGetTempFileName()		{
 	return (char*)osl_tempFileName;
 }
 

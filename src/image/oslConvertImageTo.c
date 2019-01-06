@@ -1,6 +1,6 @@
 #include "oslib.h"
 
-extern inline int oslFindColorInPalette(OSL_PALETTE *pal, int count, OSL_COLOR color)		{
+inline int oslFindColorInPalette(OSL_PALETTE *pal, int count, OSL_COLOR color)		{
    int i;
 
    for (i=0;i<count;i++)		{
